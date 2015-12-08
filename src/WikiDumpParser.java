@@ -1,5 +1,4 @@
 import edu.jhu.nlp.wikipedia.*; // download from https://code.google.com/p/wikixmlj/
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 
@@ -11,10 +10,21 @@ public class WikiDumpParser {
 	private static final String Indri_ROOT_PATH = "Wiki2015/";
 	
 	public static void main(String[] args) {
-		System.out.println("start parsing " + args[0]);
+		// split the Wiki dump into individual files
+		splitWikiDump(args[0]); // specify the path to the Wiki dump as args[0]
+		System.out.println("Have created " + count + " txt files.");
+		
+		// create the new Wiki database
+		parseFilesByIndri();
+		System.out.println("You get the new database!");
+	}
+	
+//split the Wiki dump into individual files
+	private static void splitWikiDump(String WikiDumppath) {
+		System.out.println("start parsing " + WikiDumppath);
 
 		// split the Wiki dump to individual files
-		WikiXMLParser wxsp = WikiXMLParserFactory.getSAXParser(args[0]);
+		WikiXMLParser wxsp = WikiXMLParserFactory.getSAXParser(WikiDumppath);
 		try {
 			wxsp.setPageCallback(new PageCallbackHandler() { 
 				public void process(WikiPage page) {
@@ -42,11 +52,6 @@ public class WikiDumpParser {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("Have created " + count + " txt files.");
-		
-		// create the new Wiki database
-		parseFilesByIndri();
-		System.out.println("You get the new database!");
 	}
 	
 	// create the Wiki 2015 Indri repository

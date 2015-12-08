@@ -11,38 +11,38 @@ public class WikiDumpParser {
 	private static final String Indri_ROOT_PATH = "Wiki2015/";
 	
 	public static void main(String[] args) {
-//		System.out.println("start parsing " + args[0]);
-//
-//		// split the Wiki dump to individual files
-//		WikiXMLParser wxsp = WikiXMLParserFactory.getSAXParser(args[0]);
-//		try {
-//			wxsp.setPageCallback(new PageCallbackHandler() { 
-//				public void process(WikiPage page) {
-//					if (!page.isRedirect()) {
-//						// write the non-redirected page to a file
-//						String file = TXT_ROOT_PATH + count + ".txt";
-//						try {
-//							FileWriter fileWriter =
-//									new FileWriter(file);
-//							// always wrap FileWriter in BufferedWriter
-//							BufferedWriter bufferedWriter =
-//									new BufferedWriter(fileWriter);
-//							bufferedWriter.write(page.getWikiText());
-//							// always close files
-//							bufferedWriter.close();
-//							System.out.println(file + " created!");
-//							++count; // increment count
-//						} catch (Exception e) {
-//							e.printStackTrace();
-//						}
-//					}
-//				}
-//			});
-//			wxsp.parse(); // start parsing
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		System.out.println("Have created " + count + " txt files.");
+		System.out.println("start parsing " + args[0]);
+
+		// split the Wiki dump to individual files
+		WikiXMLParser wxsp = WikiXMLParserFactory.getSAXParser(args[0]);
+		try {
+			wxsp.setPageCallback(new PageCallbackHandler() { 
+				public void process(WikiPage page) {
+					if (!page.isRedirect()) {
+						// write the non-redirected page to a file
+						String file = TXT_ROOT_PATH + count + ".txt";
+						try {
+							FileWriter fileWriter =
+									new FileWriter(file);
+							// always wrap FileWriter in BufferedWriter
+							BufferedWriter bufferedWriter =
+									new BufferedWriter(fileWriter);
+							bufferedWriter.write(page.getWikiText());
+							// always close files
+							bufferedWriter.close();
+							System.out.println(file + " created!");
+							++count; // increment count
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			});
+			wxsp.parse(); // start parsing
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("Have created " + count + " txt files.");
 		
 		// create the new Wiki database
 		parseFilesByIndri();

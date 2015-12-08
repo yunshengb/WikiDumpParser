@@ -7,7 +7,7 @@ import lemurproject.indri.IndexEnvironment;
 public class WikiDumpParser {
 	private static long count = 0; // number of Wiki pages
 	private static final String TXT_ROOT_PATH = "txt_files/";
-	private static final String Indri_ROOT_PATH = "Wiki2015/";
+	private static final String INDRI_ROOT_PATH = "Wiki2015/";
 	
 	public static void main(String[] args) {
 		// split the Wiki dump into individual files
@@ -61,7 +61,7 @@ public class WikiDumpParser {
 		try {
 			env.setMemory(100*1024*1024*1024); // 100 GB
 			env.setStemmer("krovetz"); // set the stemmer
-			env.create(Indri_ROOT_PATH); // set the root path
+			env.create(INDRI_ROOT_PATH); // set the root path
 			// add all txt files to the Indri repository
 			for (long i = 0; i < count; ++i) {
 				System.out.println("Adding file " + TXT_ROOT_PATH + i + ".txt");

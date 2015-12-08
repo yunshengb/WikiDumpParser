@@ -1,6 +1,6 @@
 import edu.jhu.nlp.wikipedia.*; // download from https://code.google.com/p/wikixmlj/
 
-public class Parse {
+public class WikiDumpParser {
 	public static void main(String[] args) {
 		System.out.println(args[0]);
 		WikiXMLParser wxsp = WikiXMLParserFactory.getSAXParser(args[0]);

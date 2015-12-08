@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import lemurproject.indri.IndexEnvironment;
 
 public class WikiDumpParser {
-	private static long count = 1587; // number of Wiki pages
+	private static long count = 0; // number of Wiki pages
 	private static final String TXT_ROOT_PATH = "txt_files/";
 	private static final String Indri_ROOT_PATH = "Wiki2015/";
 	

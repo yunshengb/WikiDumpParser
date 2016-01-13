@@ -1,4 +1,4 @@
-import edu.jhu.nlp.wikipedia.*; // downloaded from https://code.google.com/p/wikixmlj/
+import edu.jhu.nlp.wikipedia.*; // download from https://code.google.com/p/wikixmlj/
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 
